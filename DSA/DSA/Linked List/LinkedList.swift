@@ -1,6 +1,5 @@
 //  LinkedList.swift
 
-// TODO: Collection 프로토콜 채택 고려
 final class LinkedList<T> {
     private(set) var head: Node<T>?
     private(set) var tail: Node<T>?
