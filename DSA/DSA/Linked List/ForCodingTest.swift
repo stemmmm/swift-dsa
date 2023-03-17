@@ -8,7 +8,7 @@ var unused = 1
 
 func traverse() {
     var cur = next[0]
-    
+
     while cur != -1 {
         print(data[cur], terminator: " ")
         cur = next[cur]
@@ -16,7 +16,8 @@ func traverse() {
     print()
 }
 
-func insert(_ newElement: Int, at index: Int) {
+// 주의) insert와 remove의 index는 연결리스트가 아닌 배열의 index를 의미
+func insert(_ newElement: Int, after index: Int) {
     data[unused] = newElement
     prev[unused] = index
     next[unused] = next[index]
@@ -27,5 +28,5 @@ func insert(_ newElement: Int, at index: Int) {
 
 func remove(at index: Int) {
     next[prev[index]] = next[index];
-    if (next[index] != -1 ) { prev[next[index]] = prev[index] }
+    if next[index] != -1 { prev[next[index]] = prev[index] }
 }
