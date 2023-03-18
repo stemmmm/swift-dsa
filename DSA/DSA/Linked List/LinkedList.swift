@@ -6,7 +6,7 @@ final class LinkedList<T> {
     
     var isEmpty: Bool { head == nil }
     
-    var count: Int {
+    var size: Int {
         guard var node = head else { return 0 }
         
         var count = 1
@@ -19,7 +19,7 @@ final class LinkedList<T> {
     }
     
     subscript(index: Int) -> Node<T> {
-        guard index >= 0 && index < count else { fatalError("Index out of range") }
+        guard index >= 0 && index < size else { fatalError("Index out of range") }
         
         var node = head
         for _ in 0 ..< index { node = node?.next }
@@ -38,7 +38,7 @@ final class LinkedList<T> {
     }
     
     func insert(_ newElement: T, at index: Int) {
-        guard index >= 0 && index <= count else { fatalError("Index out of range") }
+        guard index >= 0 && index <= size else { fatalError("Index out of range") }
         
         guard !isEmpty else {
             self.append(newElement)
@@ -49,7 +49,7 @@ final class LinkedList<T> {
             let newNode = Node(value: newElement, next: self[index], prev: nil)
             self[index].prev = newNode
             head = newNode
-        } else if index == self.count {
+        } else if index == self.size {
             let newNode = Node(value: newElement, next: nil, prev: self[index - 1])
             self[index - 1].next = newNode
             tail = newNode
@@ -61,12 +61,12 @@ final class LinkedList<T> {
     }
     
     func remove(at index: Int) {
-        guard !isEmpty || index >= 0 && index < count else { fatalError("Index out of range") }
+        guard !isEmpty || index >= 0 && index < size else { fatalError("Index out of range") }
         
         if index == 0 {
             head = self[1]
             head?.prev = nil
-        } else if index == self.count - 1 {
+        } else if index == self.size - 1 {
             tail = self[index - 1]
             tail?.next = nil
         } else {
