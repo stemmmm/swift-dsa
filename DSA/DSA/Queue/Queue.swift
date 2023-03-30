@@ -3,7 +3,7 @@
 struct Queue<T> {
     private var array: [T?] = []
     private var frontIndex = 0  // 삭제가 일어나는 끝
-    
+
     var front: T? { array[frontIndex] }
     var back: T? { array[array.endIndex - 1] }
 
@@ -12,6 +12,7 @@ struct Queue<T> {
 
     mutating func push(_ newElement: T) { array.append(newElement) }
 
+    @discardableResult
     mutating func pop() -> T? {
         let element = array[frontIndex]
         array[frontIndex] = nil
