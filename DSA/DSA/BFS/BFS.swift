@@ -23,8 +23,7 @@ var queue = Queue<(Int, Int)>()
 queue.push((0, 0))  // 큐에 시작점 삽입
 
 while !queue.isEmpty {
-    let current = queue.front!
-    queue.pop()
+    let current = queue.pop()!
     print("(\(current.0), \(current.1))")
     
     for dir in 0 ..< 4 {
