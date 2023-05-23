@@ -1,0 +1,30 @@
+//  Permutation.swift
+
+func nextPermutation<T: Comparable>(_ array: inout [T]) -> Bool {
+    let count = array.count
+
+    if count < 2 { return false }
+
+    var i = count - 1
+    while i > 0 && array[i - 1] >= array[i] {  // 배열의 끝부터 시작해서, 현재 원소가 이전 원소보다 큰 첫 번째 위치를 찾음
+        i -= 1
+    }
+
+    if i <= 0 { return false }  // 내림차순으로 정렬돼있으면 가장 마지막 순열이므로 종료
+
+    var j = count - 1
+    while array[j] <= array[i - 1] {  // 배열의 끝부터 시작해서, i - 1 위치의 원소보다 큰 첫 번째 원소를 찾음
+        j -= 1
+    }
+
+    array.swapAt(i - 1, j)
+
+    j = count - 1
+    while i < j {
+        array.swapAt(i, j)
+        i += 1
+        j -= 1
+    }
+
+    return true
+}
