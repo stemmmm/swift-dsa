@@ -17,7 +17,7 @@ func nextPermutation<T: Comparable>(_ array: inout [T]) -> Bool {
 
     array.swapAt(i - 1, j)
 
-    // i 번째 이후의 원소들 내림차순 정렬
+    // i 번째 이후의 원소들 오름차순 정렬
     j = count - 1
     while i < j {
         array.swapAt(i, j)
