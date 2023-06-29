@@ -35,7 +35,7 @@ final class FileIO {
     @inline(__always) func readString() -> String {
         var now = read()
         
-        while now == 10 || now == 32 { now = read() } // 공백과 줄바꿈 무시
+        while now == 10 || now == 32 { now = read() }  // 공백과 줄바꿈 무시
         let beginIndex = index - 1
         
         while now != 10, now != 32, now != 0 { now = read() }
@@ -46,7 +46,7 @@ final class FileIO {
     @inline(__always) func readByteSequenceWithoutSpaceAndLineFeed() -> [UInt8] {
         var now = read()
         
-        while now == 10 || now == 32 { now = read() } // 공백과 줄바꿈 무시
+        while now == 10 || now == 32 { now = read() }  // 공백과 줄바꿈 무시
         let beginIndex = index - 1
         
         while now != 10, now != 32, now != 0 { now = read() }
