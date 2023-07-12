@@ -1,17 +1,15 @@
 //  SelectionSort.swift
 
 extension Array where Element: Comparable {
-    func selectionSorted() -> [Element] {
-        var arr = self
-        
-        for i in 0 ..< arr.count {
+    mutating func selectionSort() -> [Element] {
+        for i in 0 ..< self.count {
             var idx = i
-            for j in idx + 1 ..< arr.count {
-                if arr[idx] > arr[j] { idx = j }
+            for j in idx + 1 ..< self.count {
+                if self[idx] > self[j] { idx = j }
             }
-            if i != idx { arr.swapAt(i, idx) }
+            if i != idx { self.swapAt(i, idx) }
         }
         
-        return arr
+        return self
     }
 }
