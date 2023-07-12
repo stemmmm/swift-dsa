@@ -9,7 +9,6 @@ extension Array where Element: Comparable {
             }
             if i != idx { self.swapAt(i, idx) }
         }
-        
         return self
     }
 }
