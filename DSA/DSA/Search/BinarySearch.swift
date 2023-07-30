@@ -26,7 +26,7 @@ func binarySearch<T: Comparable>(_ arr: [T], _ target: T, _ range: Range<Int>) -
 }
 
 // target 값을 삽입할 수 있는 최소 인덱스
-func lowerBound(_ arr: [Int], _ target: Int, _ length: Int) -> Int {
+func lowerBound<T: Comparable>(_ arr: [T], _ target: T, _ length: Int) -> Int {
     var left = 0
     var right = length
     
@@ -40,7 +40,7 @@ func lowerBound(_ arr: [Int], _ target: Int, _ length: Int) -> Int {
 }
 
 // target 값을 삽입할 수 있는 최대 인덱스
-func upperBound(_ arr: [Int], _ target: Int, _ length: Int) -> Int {
+func upperBound<T: Comparable>(_ arr: [T], _ target: T, _ length: Int) -> Int {
     var left = 0
     var right = length
     
