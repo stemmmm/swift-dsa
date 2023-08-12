@@ -8,7 +8,7 @@ struct HashTable<Key: Hashable, Value> {
     init(capacity: Int) {
         self.keys = [Key?](repeating: nil, count: capacity)
         self.values = [Value?](repeating: nil, count: capacity)
-        self.capacity = capacity
+        self.capacity = capacity * 2
     }
     
     // 주어진 키의 해시 값을 계산하고, linear probing 방식으로 적절한 인덱스를 찾은 뒤, 리턴함
