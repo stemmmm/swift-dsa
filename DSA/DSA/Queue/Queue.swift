@@ -1,19 +1,19 @@
 //  Queue.swift
 
-struct Queue<T> {
-    private var array: [T?] = []
+struct Queue<Element> {
+    private var array: [Element?] = []
     private var frontIndex = 0  // 삭제가 일어나는 끝
 
-    var front: T? { array[frontIndex] }
-    var back: T? { array[array.endIndex - 1] }
+    var front: Element? { array[frontIndex] }
+    var back: Element? { array[array.endIndex - 1] }
 
     var size: Int { array.count - frontIndex }
     var isEmpty: Bool { size == 0 }
 
-    mutating func push(_ newElement: T) { array.append(newElement) }
+    mutating func push(_ newElement: Element) { array.append(newElement) }
 
     @discardableResult
-    mutating func pop() -> T? {
+    mutating func pop() -> Element? {
         let element = array[frontIndex]
         array[frontIndex] = nil
         frontIndex += 1

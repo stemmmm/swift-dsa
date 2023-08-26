@@ -1,12 +1,12 @@
 //  Stack.swift
 
-struct Stack<T> {
-    private var array: [T] = []
+struct Stack<Element> {
+    private var array: [Element] = []
     
     var size: Int { array.count }
     var isEmpty: Bool { array.isEmpty }
-    var top: T? { array.last }
+    var top: Element? { array.last }
 
-    mutating func push(_ newElement: T) { array.append(newElement) }
-    mutating func pop() -> T { array.removeLast() }
+    mutating func push(_ newElement: Element) { array.append(newElement) }
+    mutating func pop() -> Element { array.removeLast() }
 }
